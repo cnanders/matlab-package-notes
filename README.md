@@ -33,5 +33,6 @@ Instead, you must add the parent folder of the package to the MATLAB path.
 
 ### Example
 
-To acces the `HexUtils` class from `file_a.m`,  `file_a.m` should  add the parent folder of the “+hex” package to the MATLAB path using  `addpath('packages/matlab-hex')`.  
+To acces the `HexUtils` class from `file_a.m`,  `file_a.m` should  add the parent folder of the “+hex” package to the MATLAB path using  `addpath('packages/matlab-hex')`.  Static methods of the `HexUtils` class could then be invoked with `hex.HexUtils.add("AF", "0C")`, for example.
+
 
