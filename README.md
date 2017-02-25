@@ -8,14 +8,18 @@ MATLAB packages provides a means to organize / scope MATLAB classes and function
 
 Consider the following project structure:
 - project 
-  - packages  
-    - matlab-npoint
-      - +npoint
-        - +lc400
-          - LC400.m
-    - matlab-hex
-      - +hex
-        - HexUtils.m
+  - vendor  
+    - github
+      - cnanders
+        - matlab-npoint
+          - pkg
+            - +npoint
+              - +lc400
+                - LC400.m
+        - matlab-hex
+          - pkg
+            - +hex
+              - HexUtils.m
   - file_a.m
   - file_b.m
 
@@ -31,8 +35,21 @@ Once the package has been added to the MATLAB path (see [Adding Packages to the 
 
 Instead, you must add the parent folder of the package to the MATLAB path. 
 
-### Example
+### Example 1
 
-To acces the `HexUtils` class from `file_a.m`,  `file_a.m` should  add the parent folder of the “+hex” package to the MATLAB path using  `addpath('packages/matlab-hex')`.  Static methods of the `HexUtils` class could then be invoked with `hex.HexUtils.add("AF", "0C")`, for example.
+To acces the `HexUtils` class from `file_a.m`,  `file_a.m` should  add the parent folder of the “+hex” package to the MATLAB path 
+```
+addpath('vendor/github/cnanders/matlab-hex/pkg')
+``` 
+Static methods of the `HexUtils` class could then be invoked with `hex.HexUtils.add("AF", "0C")`, for example.
 
+
+### Example 2
+
+To acces the `LC400` class from `file_a.m`,  traverse from LC400 up to the root of its package, i.e., `+npoint`.  `file_a.m` should  add the parent folder of the “+npoint” package to the MATLAB path
+
+```
+addpath('vendor/github/cnanders/matlab-npoint/pkg')
+```
+An instance of `LC400` could be created with `lc400 = npoint.lc400.LC400()`, for example.
 
