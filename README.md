@@ -12,12 +12,12 @@ Consider the following project structure:
     - github
       - cnanders
         - matlab-npoint
-          - pkg
+          - src
             - +npoint
               - +lc400
                 - LC400.m
         - matlab-hex
-          - pkg
+          - src
             - +hex
               - HexUtils.m
   - file_a.m
@@ -39,7 +39,7 @@ Instead, you must add the parent folder of the package to the MATLAB path.
 
 To acces the `HexUtils` class from `file_a.m`,  `file_a.m` should  add the parent folder of the “+hex” package to the MATLAB path 
 ```
-addpath('vendor/github/cnanders/matlab-hex/pkg')
+addpath('vendor/github/cnanders/matlab-hex/src')
 ``` 
 Static methods of the `HexUtils` class could then be invoked with `hex.HexUtils.add("AF", "0C")`, for example.
 
@@ -49,7 +49,7 @@ Static methods of the `HexUtils` class could then be invoked with `hex.HexUtils.
 To acces the `LC400` class from `file_a.m`,  traverse from LC400 up to the root of its package, i.e., `+npoint`.  `file_a.m` should  add the parent folder of the “+npoint” package to the MATLAB path
 
 ```
-addpath('vendor/github/cnanders/matlab-npoint/pkg')
+addpath('vendor/github/cnanders/matlab-npoint/src')
 ```
 An instance of `LC400` could be created with `lc400 = npoint.lc400.LC400()`, for example.
 
